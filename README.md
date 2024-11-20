@@ -6,6 +6,7 @@ descriptors,pipelines,synchronization and a lot more.
 ## Building and Running
 
 ### Requirements:
+- [glitch](https://github.com/Gl1tchs/glitch) should be installed in your system.
 - glslc or other spirv compiler (note that the compiler should preserve the
 bindings via -fpreserve-bindings for reflection purposes).
 
@@ -20,8 +21,3 @@ build/glitch-sandbox # run it
 
 You can access each individual examples using the provided "Examples" widget within
 the application. The source code of each examples can be found under examples/ directory.
-
-## Notes
-
-This project only works on x86_64 linux environment because the engine used is
-closed source and i am very lazy to build it on other environments.

@@ -1,9 +1,9 @@
 #include "examples/textures/textures.h"
 
 #include <imgui/imgui.h>
-#include <renderer/render_backend.h>
-#include <renderer/renderer.h>
-#include <renderer/types.h>
+#include <glitch/renderer/render_backend.h>
+#include <glitch/renderer/renderer.h>
+#include <glitch/renderer/types.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>

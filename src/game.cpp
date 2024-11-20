@@ -1,8 +1,8 @@
 #include "game.h"
 
-#include <core/event/input.h>
+#include <glitch/core/event/input.h>
 #include <imgui/imgui.h>
-#include <renderer/renderer.h>
+#include <glitch/renderer/renderer.h>
 
 #include "scene_data.h"
 

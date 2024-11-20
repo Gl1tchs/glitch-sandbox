@@ -5,6 +5,10 @@ project(glitch-sandbox)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+find_package(Glitch REQUIRED)
+
 file(GLOB_RECURSE SOURCES
     "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp"
     "${CMAKE_CURRENT_LIST_DIR}/src/*.h"
@@ -18,7 +22,7 @@ target_include_directories(glitch-sandbox
     PUBLIC
     src
     ${CMAKE_CURRENT_LIST_DIR}
-    third_party/glitch/include
+    ${GLITCH_INCLUDE_DIRS} 
 )
 
 target_link_directories(glitch-sandbox
@@ -28,11 +32,7 @@ target_link_directories(glitch-sandbox
 
 target_link_libraries(glitch-sandbox
     PUBLIC
-    glitch
+    ${GLITCH_LIBRARIES}
 )
 
-target_precompile_headers(glitch-sandbox
-    PUBLIC
-    third_party/glitch/include/pch.h
-)
-
+target_precompile_headers(glitch-sandbox PUBLIC src/pch.h)

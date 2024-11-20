@@ -1,9 +1,9 @@
 #include "examples/hello_triangle/hello_triangle.h"
 
-#include <core/debug/log.h>
-#include <renderer/render_backend.h>
-#include <renderer/renderer.h>
-#include <renderer/types.h>
+#include <glitch/core/debug/log.h>
+#include <glitch/renderer/render_backend.h>
+#include <glitch/renderer/renderer.h>
+#include <glitch/renderer/types.h>
 
 #include "shader_utils.h"
 

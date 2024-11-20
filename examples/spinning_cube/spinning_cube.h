@@ -2,9 +2,9 @@
 
 #include "example.h"
 
-#include <core/transform.h>
-#include <renderer/render_backend.h>
-#include <renderer/types.h>
+#include <glitch/core/transform.h>
+#include <glitch/renderer/render_backend.h>
+#include <glitch/renderer/types.h>
 
 class ExampleSpinningCube : public Example {
 public:

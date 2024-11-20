@@ -1,5 +1,5 @@
 #define GL_MAIN_IMPLEMENTATION
-#include <core/entrypoint.h>
+#include <glitch/core/entrypoint.h>
 
 #include "game.h"
 

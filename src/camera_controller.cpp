@@ -1,6 +1,6 @@
 #include "camera_controller.h"
 
-#include <core/event/input.h>
+#include <glitch/core/event/input.h>
 
 CameraController::CameraController() :
 		last_mouse_pos(

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <renderer/camera.h>
+#include <glitch/renderer/camera.h>
 
 class CameraController {
 public:

@@ -40,6 +40,6 @@
 
 #include <glm/glm.hpp>
 
-#include "core/core.h"
+#include <glitch/core/core.h>
 
 namespace fs = std::filesystem;

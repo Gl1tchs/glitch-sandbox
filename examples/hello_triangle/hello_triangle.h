@@ -2,7 +2,7 @@
 
 #include "example.h"
 
-#include <renderer/render_backend.h>
+#include <glitch/renderer/render_backend.h>
 
 class ExampleHelloTriangle : public Example {
 public:

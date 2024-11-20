@@ -1,6 +1,6 @@
 #pragma once
 
-#include <renderer/types.h>
+#include <glitch/renderer/types.h>
 
 #include "scene_data.h"
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include <core/application.h>
-#include <renderer/camera.h>
-#include <renderer/render_backend.h>
+#include <glitch/core/application.h>
+#include <glitch/renderer/camera.h>
+#include <glitch/renderer/render_backend.h>
 
 #include "camera_controller.h"
 #include "example.h"
