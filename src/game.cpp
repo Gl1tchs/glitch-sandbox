@@ -7,6 +7,7 @@
 
 #include "examples/hello_triangle/hello_triangle.h"
 #include "examples/spinning_cube/spinning_cube.h"
+#include "examples/textures/textures.h"
 
 Game::Game(const ApplicationCreateInfo& p_info) : Application(p_info) {}
 
@@ -17,6 +18,7 @@ void Game::_on_start() {
 
 	examples.push_back(create_ref<ExampleHelloTriangle>());
 	examples.push_back(create_ref<ExampleSpinningCube>());
+	examples.push_back(create_ref<ExampleTextures>());
 
 	active_example = examples.front();
 
