@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 file(GLOB_RECURSE SOURCES
     "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp"
     "${CMAKE_CURRENT_LIST_DIR}/src/*.h"
+    "${CMAKE_CURRENT_LIST_DIR}/examples/*.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/examples/*.h"
 )
 
 add_executable(glitch-sandbox ${SOURCES})
@@ -15,6 +17,7 @@ add_executable(glitch-sandbox ${SOURCES})
 target_include_directories(glitch-sandbox
     PUBLIC
     src
+    ${CMAKE_CURRENT_LIST_DIR}
     third_party/glitch/include
 )
 

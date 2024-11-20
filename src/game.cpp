@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include <core/event/input.h>
+#include <imgui/imgui.h>
 #include <renderer/renderer.h>
 
 #include "scene_data.h"
@@ -28,20 +29,6 @@ void Game::_on_start() {
 }
 
 void Game::_on_update(float p_dt) {
-	for (int i = 1; i <= 9; i++) {
-		if (Input::is_key_pressed(
-					static_cast<KeyCode>(static_cast<int>(KEY_CODE_0) + i)) &&
-				examples.size() >= i) {
-			{
-				backend->device_wait();
-				active_example->on_destroy();
-			}
-			active_example = examples[i - 1];
-			active_example->on_init();
-			break;
-		}
-	}
-
 	camera.aspect_ratio = get_window()->get_aspect_ratio();
 
 	static bool mouse_disabled = false;
@@ -81,6 +68,27 @@ void Game::_on_render(float p_dt) {
 
 	renderer->imgui_begin();
 	{
+		ImGui::Begin("Examples");
+		for (const auto& example : examples) {
+			if (ImGui::Selectable(example->get_name(),
+						active_example &&
+								active_example->get_name() ==
+										example->get_name())) {
+				// wait for gpu to finish operations
+				backend->device_wait();
+
+				// end current example and run new one
+				active_example->on_destroy();
+				active_example = example;
+				active_example->on_init();
+			}
+		}
+		ImGui::End();
+
+		ImGui::Begin("Stats");
+		ImGui::Text("Perf:\n\tms: %.4f\n\tfps: %.1f", p_dt, 1.0f / p_dt);
+		ImGui::End();
+
 		active_example->on_imgui();
 	}
 	renderer->imgui_end();

@@ -8,6 +8,8 @@
 
 class ExampleSpinningCube : public Example {
 public:
+	IMPL_EXAMPLE("Spinning Cube")
+
 	void on_init() override;
 	void on_render(CommandBuffer p_cmd, const SceneData& p_scene_data) override;
 	void on_destroy() override;

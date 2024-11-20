@@ -6,9 +6,8 @@ descriptors,pipelines,synchronization and a lot more.
 ## Building and Running
 
 ### Requirements:
-- clang
-- glslc
-- ninja
+- glslc or other spirv compiler (note that the compiler should preserve the
+bindings via -fpreserve-bindings for reflection purposes).
 
 ```bash
 git clone https://github.com/Gl1tchs/glitch-sandbox.git # clone the repository
@@ -19,7 +18,8 @@ build/glitch-sandbox # run it
 
 ## Examples
 
-You can access each individual examples using keys 1-9.
+You can access each individual examples using the provided "Examples" widget within
+the application. The source code of each examples can be found under examples/ directory.
 
 ## Notes
 
