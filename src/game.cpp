@@ -6,6 +6,7 @@
 #include "scene_data.h"
 
 #include "examples/hello_triangle/hello_triangle.h"
+#include "examples/spinning_cube/spinning_cube.h"
 
 Game::Game(const ApplicationCreateInfo& p_info) : Application(p_info) {}
 
@@ -15,6 +16,8 @@ void Game::_on_start() {
 	camera_controller.set_camera(&camera, &camera_transform);
 
 	examples.push_back(create_ref<ExampleHelloTriangle>());
+	examples.push_back(create_ref<ExampleSpinningCube>());
+
 	active_example = examples.front();
 
 	if (active_example) {
@@ -24,8 +27,9 @@ void Game::_on_start() {
 
 void Game::_on_update(float p_dt) {
 	for (int i = 1; i <= 9; i++) {
-		if (Input::is_key_pressed(static_cast<KeyCode>(KEY_CODE_1 + (i - 1))) &&
-				examples.size() > i) {
+		if (Input::is_key_pressed(
+					static_cast<KeyCode>(static_cast<int>(KEY_CODE_0) + i)) &&
+				examples.size() >= i) {
 			{
 				backend->device_wait();
 				active_example->on_destroy();
@@ -58,7 +62,7 @@ void Game::_on_update(float p_dt) {
 		}
 	}
 
-	_on_render();
+	_on_render(p_dt);
 }
 
 void Game::_on_destroy() {
@@ -66,7 +70,7 @@ void Game::_on_destroy() {
 	active_example->on_destroy();
 }
 
-void Game::_on_render() {
+void Game::_on_render(float p_dt) {
 	Ref<Renderer> renderer = get_renderer();
 
 	CommandBuffer cmd = renderer->begin_render();
@@ -79,6 +83,7 @@ void Game::_on_render() {
 			.view = camera.get_view_matrix(camera_transform),
 			.projection = camera.get_projection_matrix(),
 			.camera_position = camera_transform.get_position(),
+			.delta_time = p_dt,
 		};
 
 		active_example->on_render(cmd, scene_data);

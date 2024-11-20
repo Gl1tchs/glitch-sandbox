@@ -20,7 +20,7 @@ protected:
 	void _on_destroy() override;
 
 private:
-	void _on_render();
+	void _on_render(float p_dt);
 
 private:
 	Ref<RenderBackend> backend;
