@@ -71,14 +71,23 @@ void Game::_on_destroy() {
 }
 
 void Game::_on_render(float p_dt) {
+	if (!active_example) {
+		return;
+	}
+
 	Ref<Renderer> renderer = get_renderer();
 
+	renderer->imgui_begin();
+	{
+		active_example->on_imgui();
+	}
+	renderer->imgui_end();
+
 	CommandBuffer cmd = renderer->begin_render();
+	{
+		backend->command_begin_rendering(
+				cmd, renderer->get_draw_extent(), renderer->get_draw_image());
 
-	backend->command_begin_rendering(
-			cmd, renderer->get_draw_extent(), renderer->get_draw_image());
-
-	if (active_example) {
 		SceneData scene_data = {
 			.view = camera.get_view_matrix(camera_transform),
 			.projection = camera.get_projection_matrix(),
@@ -87,9 +96,7 @@ void Game::_on_render(float p_dt) {
 		};
 
 		active_example->on_render(cmd, scene_data);
+		backend->command_end_rendering(cmd);
 	}
-
-	backend->command_end_rendering(cmd);
-
 	renderer->end_render();
 }

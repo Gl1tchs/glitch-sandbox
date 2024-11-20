@@ -10,4 +10,6 @@ public:
 	virtual void on_render(
 			CommandBuffer p_cmd, const SceneData& p_scene_data) = 0;
 	virtual void on_destroy() = 0;
+
+	virtual void on_imgui() {};
 };

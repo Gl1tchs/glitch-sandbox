@@ -12,6 +12,8 @@ public:
 	void on_render(CommandBuffer p_cmd, const SceneData& p_scene_data) override;
 	void on_destroy() override;
 
+	void on_imgui() override;
+
 private:
 	Ref<RenderBackend> backend;
 

@@ -1,5 +1,6 @@
 #include "examples/spinning_cube/spinning_cube.h"
 
+#include <imgui/imgui.h>
 #include <renderer/render_backend.h>
 #include <renderer/renderer.h>
 #include <renderer/types.h>
@@ -123,3 +124,5 @@ void ExampleSpinningCube::on_destroy() {
 	backend->buffer_free(vertex_buffer);
 	backend->buffer_free(index_buffer);
 }
+
+void ExampleSpinningCube::on_imgui() { ImGui::ShowDemoWindow(); }
